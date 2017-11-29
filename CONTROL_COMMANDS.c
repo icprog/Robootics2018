@@ -1,7 +1,3 @@
-
-int X1=0,X2=0, Y1=0,Y2=0, threshold=15;
-
-
 ////////////////////////////TANK DRIVE/////////////////////////////////////
 void TankDrive()
 {
@@ -24,45 +20,59 @@ void TankDrive()
 void Stage1()
 {
 	if(abs(vexRT[Ch1Xmtr2]) > threshold)
-		Y2 = vexRT[Ch1Xmtr2];
+	{
+		Stage1LeftSpeed = vexRT[Ch1Xmtr2];
+		Stage1RightSpeed = vexRT[Ch1Xmtr2];
+	}
 	else
-		Y2 = 0;
-
-		motor[Stage1Right] = Y2;
-		motor[Stage1Left] = Y2;
+	{
+		Stage1LeftSpeed = 0;
+		Stage1RightSpeed = 0;
+	}
+		motor[Stage1Left] = Stage1LeftSpeed;
+		motor[Stage1Right] = Stage1RightSpeed;
 }
-///////////////////////////Stsge3 Drive////////////////////////////////////
+///////////////////////////Stage2 Drive////////////////////////////////////
 void Stage2()
 {
 	if(abs(vexRT[Ch3Xmtr2]) > threshold)
-		Y2 = vexRT[Ch3Xmtr2];
+		Stage2Speed = vexRT[Ch3Xmtr2];
 	else
-		Y2 = 0;
+		Stage2Speed = 0;
 
-		motor[Stage2Motor] = Y2;
+		motor[Stage2Motor] = Stage2Speed;
 }
-///////////////////////////Hand Drive////////////////////////////////////
-void HandControl()
+///////////////////////////Grabber Control////////////////////////////////////
+void GrabberControl()
 {
 	if(vexRT[Btn7DXmtr2] == 1)
-		Y2 = 50;
+		GrabberSpeed = 50;
 	else if (vexRT[Btn7UXmtr2] == 1)
-		Y2 = -50;
+		GrabberSpeed = -50;
 	else
-		Y2 = 0;
+		GrabberSpeed = 0;
 
-		motor[Hand] = Y2;
+		motor[GrabberMotor] = GrabberSpeed;
 }
 //////////////////////////Torque Lift/////////////////////////////////
 void TorqueLift()
 {
 	if(vexRT[Btn8D] == 1)
-		Y2 = 100;
-	else if (vexRT[Btn8U] == 1)
-		Y2 = -100;
+	{
+		TorqueLeftSpeed = 100;
+		TorqueRightSpeed = 100;
+	}
+	else if(vexRT[Btn8U] == 1)
+	{
+		TorqueLeftSpeed = -100;
+		TorqueRightSpeed = -100;
+	}
 	else
-		Y2 = 0;
+	{
+		TorqueLeftSpeed = 0;
+		TorqueRightSpeed = 0;
+	}
 
-		motor[TorqueLeft] = Y2;
-		motor[TorqueRight] = Y2;
+		motor[TorqueLeft] = TorqueLeftSpeed;
+		motor[TorqueRight] = TorqueRightSpeed;
 }
