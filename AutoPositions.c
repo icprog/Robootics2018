@@ -59,7 +59,7 @@ if(/*any button*/1==1){ // Position 1
 	}
 
 	if(Stage1AutoPos==1){
-		if(/*Sensor Value*/){
+		if(/*Sensor Value*/1==1){
 
 		}
 

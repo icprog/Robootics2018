@@ -19,24 +19,51 @@ void TankDrive()
 ///////////////////////////Stage1 DRIVE///////////////////////////////////
 void Stage1()
 {
-	if(abs(vexRT[Ch1Xmtr2]) > threshold)
+	ArmPostion = SensorValue[Stage1Encoder] - CenterValue;
+	if(ArmPostion<-100 && ArmPostion>-400)
 	{
-		Stage1LeftSpeed = vexRT[Ch1Xmtr2];
-		Stage1RightSpeed = vexRT[Ch1Xmtr2];
+		Stage1LeftSpeed = -10;
+		Stage1RightSpeed = -10;
 	}
-	else
+	else if(ArmPostion<-400 && ArmPostion>-1500)
 	{
-		Stage1LeftSpeed = 0;
-		Stage1RightSpeed = 0;
+		Stage1LeftSpeed = -25;
+		Stage1RightSpeed = -25;
 	}
+	else if(ArmPostion<100 && ArmPostion>350)
+	{
+		Stage1LeftSpeed = 5;
+		Stage1RightSpeed = 5;
+	}
+	else if(ArmPostion>350 && ArmPostion<1000)
+	{
+		Stage1LeftSpeed = 25;
+		Stage1RightSpeed = 25;
+	}
+
+	if(vexRT[Btn5UXmtr2]==1){
+		if(abs(vexRT[Ch3Xmtr2]) > threshold)
+		{
+			Stage1LeftSpeed = vexRT[Ch3Xmtr2];
+			Stage1RightSpeed = vexRT[Ch3Xmtr2];
+		}
+	}
+	else if(abs(vexRT[Ch3Xmtr2]) > threshold)
+	{
+		Stage1LeftSpeed = (vexRT[Ch3Xmtr2])/2.5;
+		Stage1RightSpeed = (vexRT[Ch3Xmtr2])/2.5;
+	}
+
 		motor[Stage1Left] = Stage1LeftSpeed;
 		motor[Stage1Right] = Stage1RightSpeed;
 }
 ///////////////////////////Stage2 Drive////////////////////////////////////
 void Stage2()
 {
-	if(abs(vexRT[Ch3Xmtr2]) > threshold)
-		Stage2Speed = vexRT[Ch3Xmtr2];
+	if(vexRT[Btn8LXmtr2] == 1)
+		Stage2Speed = 100;
+	else if(vexRT[Btn8DXmtr2])
+		Stage2Speed = -100;
 	else
 		Stage2Speed = 0;
 
@@ -45,10 +72,10 @@ void Stage2()
 ///////////////////////////Grabber Control////////////////////////////////////
 void GrabberControl()
 {
-	if(vexRT[Btn7DXmtr2] == 1)
-		GrabberSpeed = 50;
-	else if (vexRT[Btn7UXmtr2] == 1)
-		GrabberSpeed = -50;
+	if(vexRT[Btn6DXmtr2] == 1)
+		GrabberSpeed = 100;
+	else if (vexRT[Btn6UXmtr2] == 1)
+		GrabberSpeed = -100;
 	else
 		GrabberSpeed = 0;
 
@@ -57,12 +84,12 @@ void GrabberControl()
 //////////////////////////Torque Lift/////////////////////////////////
 void TorqueLift()
 {
-	if(vexRT[Btn8D] == 1)
+	if(vexRT[Btn6U] == 1)
 	{
 		TorqueLeftSpeed = 100;
 		TorqueRightSpeed = 100;
 	}
-	else if(vexRT[Btn8U] == 1)
+	else if(vexRT[Btn6D] == 1)
 	{
 		TorqueLeftSpeed = -100;
 		TorqueRightSpeed = -100;
