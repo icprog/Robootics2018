@@ -1,5 +1,6 @@
 int X1=0,X2=0, Y1=0,Y2=0, threshold=15;
 int cycle = 0;
+int Stage1AutoPos = 0;
 
 int LeftBaseSpeed = 0;
 signed char BaseLeftArray [175];

@@ -13,6 +13,7 @@
 
 #include "Varibles.c"
 #include "CONTROL_COMMANDS.c"
+#include "AutoPositions.c"
 #include "Sensor&LCD_Control.c"
 #include "Coding_Autonomus.c"
 
@@ -24,6 +25,7 @@ task main();
 		TankDrive();
 		TorqueLift();
 		Stage1();
+		Stage1Auto();
 		Stage2();
 		GrabberControl();
 		Sensor();
