@@ -19,23 +19,23 @@ void TankDrive()
 ///////////////////////////Stage1 DRIVE///////////////////////////////////
 void Stage1()
 {
-
-	if(Stage1AvgPosition<-150 && Stage1AvgPosition>-400)
+	ArmPostion = SensorValue[Stage1Encoder] - CenterValue;
+	if(ArmPostion<-100 && ArmPostion>-400)
 	{
-		Stage1LeftSpeed = -15;
-		Stage1RightSpeed = -15;
+		Stage1LeftSpeed = -10;
+		Stage1RightSpeed = -10;
 	}
-	else if(Stage1AvgPosition<-400 && Stage1AvgPosition>-1500)
+	else if(ArmPostion<-400 && ArmPostion>-1500)
 	{
 		Stage1LeftSpeed = -25;
 		Stage1RightSpeed = -25;
 	}
-	else if(Stage1AvgPosition>150 && Stage1AvgPosition<400)
+	else if(ArmPostion<100 && ArmPostion>350)
 	{
-		Stage1LeftSpeed = 15;
-		Stage1RightSpeed = 15;
+		Stage1LeftSpeed = 5;
+		Stage1RightSpeed = 5;
 	}
-	else if(Stage1AvgPosition>400 && Stage1AvgPosition<1000)
+	else if(ArmPostion>350 && ArmPostion<1000)
 	{
 		Stage1LeftSpeed = 25;
 		Stage1RightSpeed = 25;

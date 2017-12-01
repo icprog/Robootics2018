@@ -2,13 +2,10 @@ int X1=0,X2=0, Y1=0,Y2=0, threshold=15;
 int cycle = 0;
 int LeftMotorEncoder;
 int RightMotorEncoder;
-int LeftCenterValue = 1870;
-int RightCenterValue = 1870;
-int Stage1LeftPosition = Stage1LeftEncoder - LeftCenterValue;
-int Stage1RightPosition = Stage1RightEncoder - RightCenterValue;
-int Stage1AvgPosition;
+int Stage1MotorEncoder;
+int CenterValue = 1965;
+int ArmPostion = 0;
 int Stage1AutoPos = 0;
-int Stage2Position;
 
 int LeftBaseSpeed = 0;
 //signed char BaseLeftArray [175];
