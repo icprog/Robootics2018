@@ -69,10 +69,6 @@ void Stage2()
 
 		motor[Stage2Motor] = Stage2Speed;
 
-	if(vexRT[Btn5DXmtr2]==1)
-	{
-		setMotorTarget(GrabberMotor, -Stage2Position, 50);
-	}
 }
 ///////////////////////////Grabber Control////////////////////////////////////
 void GrabberControl()
