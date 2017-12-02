@@ -17,11 +17,3 @@ int GrabberSpeed = 0;
 int TorqueLeftSpeed = 0;
 int TorqueRightSpeed = 0;
 int TorqueExtendSpeed = 0;
-
-signed char LeftBaseArray [175];
-signed char RightBaseArray [175];
-signed char TorqueLiftArray [175];
-signed char TorqueExtendArray[175];
-signed char Stage1Array [175];
-signed char Stage2Array[175];
-signed char GrabberArray[175];
