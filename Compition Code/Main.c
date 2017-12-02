@@ -51,6 +51,7 @@ task usercontrol()
   {
     TankDrive();
 		TorqueLift();
+		TorqueExtention();
 		Stage1();
 		Stage2();
 		GrabberControl();

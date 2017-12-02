@@ -68,6 +68,11 @@ void Stage2()
 		Stage2Speed = 0;
 
 		motor[Stage2Motor] = Stage2Speed;
+
+	if(vexRT[Btn5DXmtr2]==1)
+	{
+		setMotorTarget(GrabberMotor, -Stage2Position, 50);
+	}
 }
 ///////////////////////////Grabber Control////////////////////////////////////
 void GrabberControl()
@@ -102,4 +107,23 @@ void TorqueLift()
 
 		motor[TorqueLeft] = TorqueLeftSpeed;
 		motor[TorqueRight] = TorqueRightSpeed;
+}
+//////////////////////////Torque Extend/////////////////////////////////
+void TorqueExtention()
+{
+	if(vexRT[Btn5U] == 1)
+	{
+		TorqueExtendSpeed = 50;
+	}
+	else if(vexRT[Btn5D] == 1)
+	{
+		TorqueExtendSpeed = -100;
+	}
+	else
+	{
+		TorqueExtendSpeed = 0;
+	}
+
+		motor[TorqueExtend] = TorqueExtendSpeed;
+
 }
