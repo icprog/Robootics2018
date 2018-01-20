@@ -1,0 +1,17 @@
+$line = 0;
+
+while(<>){
+$line++;
+while($lineNumber<10){
+$lineNumber++;
+printf("test");
+}
+next if($lno == 1 );
+chomp $_;
+@fields = split(',',$_);
+@v[line] = $fields[3]+0;
+printf("@v[line],");
+}
+
+
+
