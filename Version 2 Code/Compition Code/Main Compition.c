@@ -45,7 +45,7 @@ task autonomous()
 		ArmLift();
 		ClawControl();
 		LCD();
-}
+	}
 
 }
 
@@ -60,7 +60,5 @@ task usercontrol()
 		ArmLift();
 		ClawControl();
 		LCD();
-
-
 	}
 }

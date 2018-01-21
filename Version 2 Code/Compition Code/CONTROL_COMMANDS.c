@@ -36,7 +36,7 @@ void PressureControl(){
 }
 ////////////////// Arm Lift Control ///////////////////////////////////////////////
 void ArmLift(){
-	 // Proforms autohold calculations
+	// Proforms autohold calculations
 	if(abs(armJoystick) > 15){
 		leftArmMotorSpeed = vexRT[Ch2Xmtr2];
 		rightArmMotorSpeed = vexRT[Ch2Xmtr2];
