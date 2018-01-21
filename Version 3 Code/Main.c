@@ -24,12 +24,12 @@
 bool Auto = false;
 bool User = true;
 #include "Control Commands.c"
+#include "LCD.c"
 
 void pre_auton()
 {
-
+	LCD();
   bStopTasksBetweenModes = false;
-
 }
 
 task autonomous()
@@ -40,6 +40,7 @@ task autonomous()
     ArmControl(false);
     MobileGoalControl(false);
     ClawControl(false);
+    LCD();
   }
 }
 
@@ -52,5 +53,6 @@ task usercontrol()
     ArmControl(true);
     MobileGoalControl(true);
     ClawControl(true);
+    LCD();
   }
 }
