@@ -1,3 +1,4 @@
+int AState = 0;
 void LeftAutoBase(){
 	BaseStraight(75,1500);
 	delay(750);
@@ -9,7 +10,8 @@ void LeftAutoBase(){
 	delay(100);
 	BaseTurnRight(75, 600);
 	delay(100);
-	BaseStraight(127, 550);
+	AState = 1;
+	BaseStraight(127, 575);
 	waitUntil(time1[T1]> 13000);
 	BaseStraight(-127,500);
 }
@@ -34,9 +36,10 @@ void LeftAutoMobileGoal(){
 	waitUntil(time1[T1]> 3300);
 	SensorValue[leftSolenoid] = 1;
 	SensorValue[rightSolenoid] = 1;
-	waitUntil(time1[T1]> 10500);
+	waitUntil(AState == 1);
+	delay(750);
 	motor[Extender] = 127;
-	waitUntil(time1[T1]> 12000);
+	delay(1500);
 	motor[Extender] = -127;
-	waitUntil(time1[T1]> 13500);
+	delay(1000);
 }
